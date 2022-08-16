@@ -1,0 +1,48 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".TakePictures">
+
+    <SurfaceView
+        android:id="@+id/imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <LinearLayout
+        android:id="@+id/lineLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <!--      <Button
+                 android:id="@+id/startBtn"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="startTimer"
+                 android:layout_gravity="center_horizontal"/>
+
+             <TextView
+                 android:id="@+id/countDowntextView"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_gravity="center_horizontal|center_vertical|center"
+                 android:gravity="center_horizontal|center_vertical"
+                 android:text="@string/conutTime"
+                 android:textSize="40sp" />
+
+             <EditText
+                 android:id="@+id/countDownEditTextView"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_gravity="center_horizontal|center_vertical|center"
+                 android:gravity="center_horizontal|center_vertical"
+                 android:text="conutTime"
+                 android:textSize="80sp"
+                 android:inputType="number"/>   -->
+
+
+    </LinearLayout>
+
+</FrameLayout>

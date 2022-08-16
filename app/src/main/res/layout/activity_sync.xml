@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Sync">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/editTextMiles"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="28dp"
+            android:hint="Miles"
+            app:layout_constraintBottom_toTopOf="@+id/editTextHeight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextAge"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/Cal"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:text="Cal:"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextUserName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Miles" />
+
+        <EditText
+            android:id="@+id/editTextAge"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="96dp"
+            android:layout_marginEnd="28dp"
+            android:hint="steps"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/Steps"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="112dp"
+            android:text="Steps:"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextUserName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/editTextUserName"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="28dp"
+            android:hint="Heart Rate"
+            app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextHeight"
+            app:layout_constraintVertical_bias="0.07"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/HeartRate"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:text="HeartRate:"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextUserName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Cal" />
+
+        <EditText
+            android:id="@+id/editTextHeight"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="604dp"
+            android:layout_marginEnd="108dp"
+            android:hint="Cal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextMiles"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/Miles"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:text="Miles:"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextUserName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Steps" />
+
+        <Button
+            android:id="@+id/btnSync"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="176dp"
+            android:layout_marginEnd="276dp"
+            android:text="SYNC"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/HeartRate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PeopleFragment"
+    tools:layout_editor_absoluteX="-2dp"
+    tools:layout_editor_absoluteY="-5dp">
+
+
+    <ImageView
+        android:id="@+id/showPhoto"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_baseline_account_circle_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+    <Button
+        android:id="@+id/btnTakePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="take photo"
+
+        app:layout_constraintEnd_toEndOf="@+id/showPhoto"
+        app:layout_constraintStart_toStartOf="@+id/showPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/showPhoto" />
+
+    <Button
+        android:id="@+id/btnTakeVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="take VIDEO"
+        app:layout_constraintEnd_toEndOf="@+id/btnTakePhoto"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="@+id/btnTakePhoto"
+        app:layout_constraintTop_toBottomOf="@+id/btnTakePhoto" />
+
+    <Button
+        android:id="@+id/btnSharing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Sharing"
+        app:layout_constraintEnd_toEndOf="@+id/btnTakeVideo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnTakeVideo"
+        app:layout_constraintTop_toBottomOf="@+id/btnTakeVideo" />
+
+    <Button
+        android:id="@+id/btnSelectVideo"
+        android:layout_width="185dp"
+        android:layout_height="93dp"
+        android:layout_marginTop="24dp"
+        android:text="Extract pictures form video"
+        app:layout_constraintEnd_toEndOf="@+id/btnSharing"
+        app:layout_constraintHorizontal_bias="0.369"
+        app:layout_constraintStart_toStartOf="@+id/btnSharing"
+        app:layout_constraintTop_toBottomOf="@+id/btnSharing" />
+
+    <ImageView
+        android:id="@+id/hospital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSelectVideo"
+        app:srcCompat="@drawable/ic_baseline_local_hospital_24" />
+
+    <TextView
+        android:id="@+id/Phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="10086"
+        android:textColor="@android:color/holo_blue_dark"
+        app:layout_constraintStart_toEndOf="@+id/hospital"
+        app:layout_constraintTop_toBottomOf="@+id/btnSelectVideo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
