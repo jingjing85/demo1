@@ -83,26 +83,24 @@ public class PeopleFragment extends Fragment {
                 if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, TAKE_PHOTO);
                 } else {
-                    Intent in = new Intent(getActivity(), TakePictures.class);
+//                      openCamera();
+//                    Intent in = new Intent(getActivity(), TakePictures.class);
+                    Intent in = new Intent(getActivity(), BurstCapture.class);
                     startActivity(in);
                 }
-
-               /* if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, TAKE_PHOTO);
-                } else {
-                    openCamera();
-                    //doTakeShooting();
-                }*/
             }
-           /* private void openCamera() {
-                ContentValues values = new ContentValues();
-                values.put(MediaStore.Images.Media.TITLE, "new picture");
-                values.put(MediaStore.Images.Media.DESCRIPTION, "From the camera");
-                imageUri = getActivity().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,values);
-                Intent intent  = new Intent("android.media.action.IMAGE_CAPTURE");
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                startActivityForResult(intent, AutoTakePictureActivity);
-            }*/
+//            private void openCamera() {
+//                ContentValues values = new ContentValues();
+//                values.put(MediaStore.Images.Media.TITLE, "new picture");
+//                values.put(MediaStore.Images.Media.DESCRIPTION, "From the camera");
+//                imageUri = getActivity().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,values);
+//                Intent intent  = new Intent("android.media.action.IMAGE_CAPTURE");
+//                intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+//                startActivityForResult(intent, 1);
+//                startActivity(intent);
+//
+//
+//            }
         });
 
 

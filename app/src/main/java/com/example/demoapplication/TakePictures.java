@@ -43,8 +43,6 @@ public class TakePictures extends Activity implements SurfaceHolder.Callback,
     public void onPictureTaken(byte[] data, Camera camera) {
         // TODO Auto-generated method stub
         Uri imageFileUri = getContentResolver().insert(  Media.EXTERNAL_CONTENT_URI, new ContentValues());
-
-        //����ӵ�
         String pathpicture=  getRealFilePath( TakePictures.this, imageFileUri );
         Log.e("PicDir", pathpicture);
         Toast.makeText(TakePictures.this, pathpicture, Toast.LENGTH_LONG)
@@ -70,7 +68,7 @@ public class TakePictures extends Activity implements SurfaceHolder.Callback,
         setContentView(R.layout.activity_take_pictures);
 
         btnTakePhoto = findViewById(R.id.btnTakePhoto);
-        imageSView = findViewById(R.id.imageView);
+        imageSView = findViewById(R.id.mSurfaceView);
         surfaceHolder = imageSView.getHolder();
 
         surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
