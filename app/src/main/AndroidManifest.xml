@@ -20,6 +20,9 @@
             android:name=".TakePictures"
             android:exported="false" />
         <activity
+            android:name=".BurstCapture"
+            android:exported="false" />
+        <activity
             android:name=".ShowInformation"
             android:exported="false" />
         <activity
@@ -42,3 +45,7 @@
     </application>
 
 </manifest>
+
+
+
+
