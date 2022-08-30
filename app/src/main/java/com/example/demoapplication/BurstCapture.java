@@ -53,7 +53,7 @@ public class BurstCapture  extends AppCompatActivity {
         setContentView(R.layout.activity_burst_capture);
 
         initView();
-        requestPermission("请给予相机、存储权限，以便app正常工作", null,
+        requestPermission("ask permissions", null,
                 new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE});
     }
 
@@ -71,7 +71,6 @@ public class BurstCapture  extends AppCompatActivity {
         mAutoFitTextureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() {
             @Override
             public void onSurfaceTextureAvailable(@NonNull SurfaceTexture surface, int width, int height) {
-                //初始化预览 Surface
                 mSurfaceTexture = surface;
                 if (mSurfaceTexture == null) {
                     Log.e(TAG, "======== surfaceTexture == null =========");
@@ -116,7 +115,7 @@ public class BurstCapture  extends AppCompatActivity {
             mCameraManager.openCamera("0", mCameraStateCallback, null);
         } catch (CameraAccessException e) {
             e.printStackTrace();
-            Log.d(TAG, "相机访问异常");
+            Log.d(TAG, "exception");
         }
     }
     private CameraDevice mCameraDevice;
@@ -127,7 +126,7 @@ public class BurstCapture  extends AppCompatActivity {
     private CameraDevice.StateCallback mCameraStateCallback = new CameraDevice.StateCallback() {
         @Override
         public void onOpened(CameraDevice camera) {
-            Log.d(TAG, "相机已启动");
+            Log.d(TAG, "run");
             mCameraDevice = camera;
             try {
                 mPreviewSurface = new Surface(mSurfaceTexture);
@@ -137,7 +136,7 @@ public class BurstCapture  extends AppCompatActivity {
                 mCameraDevice.createCaptureSession(Arrays.asList(mPreviewSurface, mImageReader.getSurface()), mSessionsStateCallback, null);
             } catch (CameraAccessException e) {
                 e.printStackTrace();
-                Log.d(TAG, "相机访问异常");
+                Log.d(TAG, "exception");
             }
         }
 
@@ -185,29 +184,27 @@ public class BurstCapture  extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        // 获得手机的宽高
+
         Point point = new Point();
         getWindowManager().getDefaultDisplay().getRealSize(point);
         int phone_width = point.x;
         int phone_height = point.y;
         Log.e(TAG, "phone_width = " + phone_width + ", phone_height = " + phone_height);
-        // 获取这颗Camera支持的Size
+
         StreamConfigurationMap map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         ArrayList<Size> sizeList = new ArrayList<Size>(Arrays.asList(map.getOutputSizes(SurfaceTexture.class)));
         for (Size size : sizeList) {
             Log.e(TAG, "width = " + size.getWidth() + ", height = " + size.getHeight());
             double ratio = (double) size.getHeight() / (double) size.getWidth();
-            // 以手机的宽作为控件的宽，计算出控件的高
             int height = (int) (phone_width / ratio);
             Log.e(TAG, "ratio = " + ratio + ", height = " + height);
-            // 如果计算出的控件的高超过手机的高，就遍历下一个
             if (height > phone_height) {
                 continue;
             } else {
                 return size;
             }
         }
-// 没有合适的宽高比
+
         return null;
     }
 

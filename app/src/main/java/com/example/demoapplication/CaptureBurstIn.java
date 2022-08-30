@@ -39,6 +39,7 @@ public class CaptureBurstIn {
             mStillBuilder.set(CaptureRequest.EDGE_MODE, CaptureRequest.EDGE_MODE_OFF);
             mStillBuilder.addTarget(mImageSurface);
             CaptureRequest request = mStillBuilder.build();
+            //a list of requests
             List<CaptureRequest> requests = new ArrayList<>();
             for(int i=0;i<30;i++)
                 requests.add(request);
