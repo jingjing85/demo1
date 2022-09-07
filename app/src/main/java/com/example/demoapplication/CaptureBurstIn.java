@@ -9,6 +9,7 @@ import android.media.Image;
 import android.media.ImageReader;
 import android.os.Environment;
 import android.view.Surface;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -39,7 +40,6 @@ public class CaptureBurstIn {
             mStillBuilder.set(CaptureRequest.EDGE_MODE, CaptureRequest.EDGE_MODE_OFF);
             mStillBuilder.addTarget(mImageSurface);
             CaptureRequest request = mStillBuilder.build();
-            //a list of requests
             List<CaptureRequest> requests = new ArrayList<>();
             for(int i=0;i<30;i++)
                 requests.add(request);
@@ -78,7 +78,7 @@ public class CaptureBurstIn {
                 e.printStackTrace();
             } finally {
                 image.close();
-//                image = null;
+                image = null;
             }
         }
     }

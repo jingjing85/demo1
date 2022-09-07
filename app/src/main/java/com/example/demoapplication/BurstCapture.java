@@ -19,6 +19,7 @@ import android.media.ImageReader;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.util.Log;
 import android.util.Size;
@@ -27,6 +28,7 @@ import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -40,12 +42,13 @@ import javax.security.auth.callback.Callback;
 
 public class BurstCapture  extends AppCompatActivity {
     private static final String TAG = "BurstCapture";
+    private Handler mHandler = new Handler();
+
 
     private String mPermissionDes;
     public AutoFitTextureView mAutoFitTextureView;
     public CameraManager mCameraManager;
-    public SeekBar mZoomSeekBar;
-    public Button mBurstCaptureBtn;
+    public Button mBurstCaptureBtn, stopTakingPictures;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,15 +98,42 @@ public class BurstCapture  extends AppCompatActivity {
             }
         });
         mBurstCaptureBtn = findViewById(R.id.burstCaptureBTN);
+        stopTakingPictures = findViewById(R.id.StopBTN);
         mImageReader = ImageReader.newInstance(bestSize.getHeight(), bestSize.getWidth(), ImageFormat.JPEG, 2);
         mImageReaderSurface = mImageReader.getSurface();
-        mBurstCaptureBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CaptureBurstIn mBurstCapture = new CaptureBurstIn(mCameraDevice, mCaptureSession, mImageReader);
-            }
-        });
+//        mBurstCaptureBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//
+//                CaptureBurstIn mBurstCapture = new CaptureBurstIn(mCameraDevice, mCaptureSession, mImageReader);
+//            }
+//        });
+
+
+
     }
+
+    public void StartRepeatTakingPictures(View view) {
+        mHandler.postDelayed(mToastRunnable, 1000);
+    }
+
+    public void StopTakingPictures(View view) {
+        mHandler.removeCallbacks(mToastRunnable);
+        Toast.makeText(BurstCapture.this, "Stop taking pictures", Toast.LENGTH_SHORT).show();
+
+    }
+
+    private Runnable mToastRunnable = new Runnable() {
+        @Override
+        public void run() {
+            Toast.makeText(BurstCapture.this, "Repeat taking pictures", Toast.LENGTH_SHORT).show();
+            CaptureBurstIn mBurstCapture = new CaptureBurstIn(mCameraDevice, mCaptureSession, mImageReader);
+            mHandler.postDelayed(this, 3000);
+
+        }
+    };
 
 
     private void openCamera() {
@@ -295,4 +325,6 @@ public class BurstCapture  extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
+
 }
