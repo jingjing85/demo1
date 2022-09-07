@@ -59,6 +59,9 @@ public class CaptureBurstIn {
         if (image == null) {
             return;
         }
+
+//       rootBuilder.setParam(CaptureRequest.JPEG_ORIENTATION, 90);    //旋转90度
+
         ByteBuffer byteBuffer = image.getPlanes()[0].getBuffer();
         byte[] data = new byte[byteBuffer.remaining()];
         byteBuffer.get(data);

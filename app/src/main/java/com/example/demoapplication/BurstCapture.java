@@ -104,9 +104,6 @@ public class BurstCapture  extends AppCompatActivity {
 //        mBurstCaptureBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//
-//
-//
 //                CaptureBurstIn mBurstCapture = new CaptureBurstIn(mCameraDevice, mCaptureSession, mImageReader);
 //            }
 //        });
@@ -116,7 +113,8 @@ public class BurstCapture  extends AppCompatActivity {
     }
 
     public void StartRepeatTakingPictures(View view) {
-        mHandler.postDelayed(mToastRunnable, 1000);
+//        mHandler.postDelayed(mToastRunnable, 1000);
+        mToastRunnable.run();
     }
 
     public void StopTakingPictures(View view) {
@@ -263,62 +261,6 @@ public class BurstCapture  extends AppCompatActivity {
             }
         }
         return granted;
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        boolean granted = true;
-        for(int i = 0; i < grantResults.length; i++){
-            if (grantResults[i] == PackageManager.PERMISSION_DENIED){
-                granted = false;
-                if (!ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[i])){
-                    showPromptDialog();
-                }else {
-//                    if (callback != null) callback.failed();
-                }
-                break;
-            }
-        }
-        if (granted){
-//            if (callback != null) callback.success();
-        }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-
-    public void showPromptDialog(){
-        new AlertDialog
-                .Builder(this)
-                .setTitle("apply ")
-                .setMessage(mPermissionDes)
-                .setCancelable(false)
-                .setPositiveButton("setting", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        toAppSetting();
-                    }
-                })
-                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-//                        if (callback != null) callback.failed();
-                    }
-                }).show();
-    }
-
-    public void toAppSetting(){
-        Intent settingIntent = null;
-        if (Build.VERSION.SDK_INT >= 9){
-            settingIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-            settingIntent.setData(Uri.fromParts("package", getPackageName(), null));
-            settingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        }else {
-            settingIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-            settingIntent.setAction(Intent.ACTION_VIEW);
-            settingIntent.setClassName("com.android.settings", "com.android.settings.InstalledAppDetails");
-            settingIntent.putExtra("com.android.settings.ApplicationPkgName", getPackageName());
-            settingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        }
-        startActivity(settingIntent);
     }
 
     @Override
