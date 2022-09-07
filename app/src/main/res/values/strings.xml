@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">DemoApplication</string>
+    <string name="take">TAKE</string>
+    <string name="STOP" />
     <!-- Strings used for fragments for navigation -->
 
     <!-- TODO: Remove or change this placeholder text -->
