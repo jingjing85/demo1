@@ -19,13 +19,27 @@
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_below="@+id/preview_view"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginBottom="70dp"
         android:background="@android:color/holo_purple"
-        android:text="TAKE" />
+        android:onClick="StartRepeatTakingPictures"
+        android:text="@string/take" />
+
+    <Button
+        android:id="@+id/StopBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@+id/preview_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="248dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginBottom="70dp"
+        android:background="@android:color/holo_purple"
+        android:onClick="StopTakingPictures"
+        android:text="stop" />
 
 </RelativeLayout>
