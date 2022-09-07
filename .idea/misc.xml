@@ -14,7 +14,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable/ic_image_black_24dp.xml" value="0.24427083333333333" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.24427083333333333" />
-        <entry key="app/src/main/res/layout/activity_burst_capture.xml" value="0.21743589743589745" />
+        <entry key="app/src/main/res/layout/activity_burst_capture.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/activity_default_page.xml" value="0.1603584016777176" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.35625" />
